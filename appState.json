@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "testGitIndu28/lambda.js",
-        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "code": "let AWS = require('aws-sdk');\nconst s3 = new AWS.S3();\n\nexports.handler = function (event, context, callback) {\n    s3.copyObject({\n        'Bucket': \"indunil.trigger\",\n        'CopySource': `/test.indunil1/1`,\n        'Key': \"1\"\n    }).promise()\n        .then(data => {\n            console.log(data);           // successful response\n            /*\n            data = {\n                CopyObjectResult: {\n                    ETag: \"\\\"6805f2cfc46c0f04559748bb039d69ae\\\"\",\n                    LastModified: \"<Date Representation>\"\n                }\n            }\n            */\n        })\n        .catch(err => {\n            console.log(err, err.stack); // an error occurred\n        });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -38,7 +38,22 @@
       "1a0b1ee3-7729-4183-bc59-eff664a8cff4"
     ],
     "currentFileId": "1a0b1ee3-7729-4183-bc59-eff664a8cff4",
-    "resources": {},
+    "resources": {
+      "s3testindunil1": {
+        "name": "s3testindunil1",
+        "type": "S3",
+        "config": {
+          "mode": 1,
+          "bucket": {
+            "region": "us-east-1",
+            "name": "test.indunil1"
+          },
+          "destinationBucket": {
+            "name": "indunil.trigger"
+          }
+        }
+      }
+    },
     "customTemplate": {
       "dialect": null,
       "definitions": null
@@ -54,7 +69,15 @@
       }
     ],
     "packageJSON": {
-      "dependencies": {}
+      "dependencies": {
+        "aws-sdk": {
+          "name": "aws-sdk",
+          "language": "javascript",
+          "version": "2.176.0",
+          "dev": true,
+          "notRemovable": false
+        }
+      }
     }
   },
   "PROJECT_META": {
@@ -64,7 +87,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1572256491109
+    "lastSave": 1572256641610
   },
   "VCS_STATE": {
     "provider": "GitHub",

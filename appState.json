@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "testGitIndu28/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst s3 = new AWS.S3();\n\nexports.handler = function (event, context, callback) {\n    s3.copyObject({\n        'Bucket': \"sigma.smoketest\",\n        'CopySource': `/as2-test-lahiru/10`,\n        'Key': \"10\"\n    }).promise()\n        .then(data => {\n            console.log(data);           // successful response\n            /*\n            data = {\n                CopyObjectResult: {\n                    ETag: \"\\\"6805f2cfc46c0f04559748bb039d69ae\\\"\",\n                    LastModified: \"<Date Representation>\"\n                }\n            }\n            */\n        })\n        .catch(err => {\n            console.log(err, err.stack); // an error occurred\n        });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "code": "\nexports.handler = function (event, context, callback) {\n \n    callback(null, { \"message\": \"Successfully executed\" });\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -101,7 +101,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1572256927202
+    "lastSave": 1572257023377
   },
   "VCS_STATE": {
     "provider": "GitHub",

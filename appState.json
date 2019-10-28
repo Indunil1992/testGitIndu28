@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "testGitIndu28/lambda.js",
-        "code": "\nexports.handler = function (event, context, callback) {\n \n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "code": "exports.handler = function (event, context, callback) {\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -38,22 +38,7 @@
       "1a0b1ee3-7729-4183-bc59-eff664a8cff4"
     ],
     "currentFileId": "1a0b1ee3-7729-4183-bc59-eff664a8cff4",
-    "resources": {
-      "s3testindunil1": {
-        "name": "s3testindunil1",
-        "type": "S3",
-        "config": {
-          "mode": 1,
-          "bucket": {
-            "region": "us-east-1",
-            "name": "test.indunil1"
-          },
-          "destinationBucket": {
-            "name": "com.slappforge.sigma.feedback"
-          }
-        }
-      }
-    },
+    "resources": {},
     "customTemplate": {
       "dialect": null,
       "definitions": null
@@ -86,7 +71,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1572257052599
+    "lastSave": 1572257123812
   },
   "VCS_STATE": {
     "provider": "GitHub",

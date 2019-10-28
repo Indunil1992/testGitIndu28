@@ -74,8 +74,7 @@
           "name": "aws-sdk",
           "language": "javascript",
           "version": "2.176.0",
-          "dev": true,
-          "notRemovable": false
+          "dev": true
         }
       }
     }
@@ -87,7 +86,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1572256641610
+    "lastSave": 1572256754965
   },
   "VCS_STATE": {
     "provider": "GitHub",

@@ -3,9 +3,9 @@ const s3 = new AWS.S3();
 
 exports.handler = function (event, context, callback) {
     s3.copyObject({
-        'Bucket': "com.slappforge.sigma.feedback",
-        'CopySource': `/test.indunil1/122`,
-        'Key': "122"
+        'Bucket': "sigma.smoketest",
+        'CopySource': `/as2-test-lahiru/10`,
+        'Key': "10"
     }).promise()
         .then(data => {
             console.log(data);           // successful response

@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "testGitIndu28/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst s3 = new AWS.S3();\n\nexports.handler = function (event, context, callback) {\n    s3.copyObject({\n        'Bucket': \"com.slappforge.sigma.feedback\",\n        'CopySource': `/test.indunil1/122`,\n        'Key': \"122\"\n    }).promise()\n        .then(data => {\n            console.log(data);           // successful response\n            /*\n            data = {\n                CopyObjectResult: {\n                    ETag: \"\\\"6805f2cfc46c0f04559748bb039d69ae\\\"\",\n                    LastModified: \"<Date Representation>\"\n                }\n            }\n            */\n        })\n        .catch(err => {\n            console.log(err, err.stack); // an error occurred\n        });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "code": "let AWS = require('aws-sdk');\nconst s3 = new AWS.S3();\n\nexports.handler = function (event, context, callback) {\n    s3.copyObject({\n        'Bucket': \"sigma.smoketest\",\n        'CopySource': `/as2-test-lahiru/10`,\n        'Key': \"10\"\n    }).promise()\n        .then(data => {\n            console.log(data);           // successful response\n            /*\n            data = {\n                CopyObjectResult: {\n                    ETag: \"\\\"6805f2cfc46c0f04559748bb039d69ae\\\"\",\n                    LastModified: \"<Date Representation>\"\n                }\n            }\n            */\n        })\n        .catch(err => {\n            console.log(err, err.stack); // an error occurred\n        });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -39,6 +39,20 @@
     ],
     "currentFileId": "1a0b1ee3-7729-4183-bc59-eff664a8cff4",
     "resources": {
+      "s3as2TestLahiru": {
+        "name": "s3as2TestLahiru",
+        "type": "S3",
+        "config": {
+          "mode": 1,
+          "bucket": {
+            "region": "us-east-1",
+            "name": "as2-test-lahiru"
+          },
+          "destinationBucket": {
+            "name": "sigma.smoketest"
+          }
+        }
+      },
       "s3testindunil1": {
         "name": "s3testindunil1",
         "type": "S3",
@@ -49,7 +63,7 @@
             "name": "test.indunil1"
           },
           "destinationBucket": {
-            "name": "com.slappforge.sigma.feedback"
+            "name": "indunil.trigger"
           }
         }
       }
@@ -74,7 +88,8 @@
           "name": "aws-sdk",
           "language": "javascript",
           "version": "2.176.0",
-          "dev": true
+          "dev": true,
+          "notRemovable": false
         }
       }
     }
@@ -86,7 +101,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1572256826677
+    "lastSave": 1572256927202
   },
   "VCS_STATE": {
     "provider": "GitHub",
